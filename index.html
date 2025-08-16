@@ -1,346 +1,1526 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Shivam Tech Solutions</title>
-<style>
-/* ==================== Global Styles ====================  */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-    
-body {
-    font-family: 'Arial', sans-serif;
-    line-height: 1.6;
-    color: #333;
-    background-color: #f4f4f4;
-}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shivam Tech Solutions | Full-Stack Development & DevOps</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* ==================== Global Styles ==================== */
+        :root {
+            --primary: #2563eb;
+            --primary-dark: #1d4ed8;
+            --secondary: #10b981;
+            --dark: #1e293b;
+            --light: #f8fafc;
+            --gray: #64748b;
+            --light-gray: #e2e8f0;
+            --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+            --transition: all 0.3s ease-in-out;
+        }
 
-a {
-    text-decoration: none;
-    color: inherit;
-}
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-img {
-    max-width: 100%;
-    height: auto;
-}
+        body {
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.7;
+            color: var(--dark);
+            background-color: var(--light);
+            overflow-x: hidden;
+        }
 
-.container {
-    max-width: 1200px;
-    margin: auto;
-    padding: 0 20px;
-}
+        h1, h2, h3, h4 {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            line-height: 1.3;
+        }
 
-/* ==================== Header ==================== */
-header {
-    background-color: #2C3E50;
-    color: white;
-    padding: 20px 0;
-    position: sticky;
-    top: 0;
-    z-index: 100;
-}
+        h1 {
+            font-size: 3.5rem;
+        }
 
-header .logo {
-    font-size: 28px;
-    font-weight: bold;
-    text-align: center;
-}
+        h2 {
+            font-size: 2.5rem;
+            margin-bottom: 2.5rem;
+            position: relative;
+            display: inline-block;
+        }
 
-nav {
-    margin-top: 10px;
-    text-align: center;
-}
+        h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 60px;
+            height: 4px;
+            background: var(--primary);
+            border-radius: 2px;
+        }
 
-nav ul {
-    list-style: none;
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-}
+        h3 {
+            font-size: 1.75rem;
+            margin-bottom: 1.25rem;
+        }
 
-nav ul li {
-    margin: 0 15px;
-}
+        p {
+            color: var(--gray);
+            margin-bottom: 1.5rem;
+            font-size: 1.1rem;
+        }
 
-nav ul li a {
-    color: white;
-    font-weight: bold;
-    transition: color 0.3s;
-}
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: var(--transition);
+        }
 
-nav ul li a:hover {
-    color: #1ABC9C;
-}
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
 
-/* ==================== Sections ==================== */
-section {
-    padding: 60px 0;
-    background: white;
-    margin-bottom: 20px;
-    border-radius: 10px;
-}
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
 
-h1, h2, h3 {
-    color: #2C3E50;
-    margin-bottom: 20px;
-}
+        .text-center {
+            text-align: center;
+        }
 
-p {
-    margin-bottom: 15px;
-}
+        .text-center h2::after {
+            left: 50%;
+            transform: translateX(-50%);
+        }
 
-/* ==================== Hero Section ==================== */
-#hero {
-    background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://via.placeholder.com/1500x500') no-repeat center center/cover;
-    color: white;
-    text-align: center;
-    padding: 150px 20px;
-    border-radius: 10px;
-}
+        .section {
+            padding: 6rem 0;
+        }
 
-#hero h1 {
-    font-size: 50px;
-    margin-bottom: 20px;
-}
+        .section-title {
+            margin-bottom: 4rem;
+        }
 
-#hero p {
-    font-size: 20px;
-}
+        .btn {
+            display: inline-block;
+            padding: 0.8rem 2rem;
+            background: var(--primary);
+            color: white;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: var(--transition);
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
+            text-align: center;
+        }
 
-/* ==================== Cards & Grid ==================== */
-.grid {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 20px;
-}
+        .btn:hover {
+            background: var(--primary-dark);
+            transform: translateY(-3px);
+            box-shadow: var(--shadow);
+        }
 
-.card {
-    background: #fafafa;
-    border: 1px solid #ddd;
-    border-radius: 10px;
-    padding: 20px;
-    flex: 1 1 45%;
-    transition: transform 0.3s;
-}
+        .btn-outline {
+            background: transparent;
+            border: 2px solid var(--primary);
+            color: var(--primary);
+        }
 
-.card:hover {
-    transform: translateY(-5px);
-}
+        .btn-outline:hover {
+            background: var(--primary);
+            color: white;
+        }
 
-/* ==================== Buttons ==================== */
-button, .btn {
-    background-color: #1ABC9C;
-    border: none;
-    color: white;
-    padding: 12px 20px;
-    cursor: pointer;
-    border-radius: 5px;
-    transition: background 0.3s;
-}
+        .btn-secondary {
+            background: var(--secondary);
+        }
 
-button:hover, .btn:hover {
-    background-color: #16A085;
-}
+        .btn-secondary:hover {
+            background: #0d9e6e;
+        }
 
-/* ==================== Footer ==================== */
-footer {
-    background-color: #2C3E50;
-    color: white;
-    padding: 40px 20px;
-    text-align: center;
-}
+        /* ==================== Header & Navigation ==================== */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            background: rgba(255, 255, 255, 0.95);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            transition: var(--transition);
+        }
 
-/* ==================== Forms ==================== */
-form input, form textarea {
-    width: 100%;
-    padding: 10px;
-    margin-top: 10px;
-    margin-bottom: 20px;
-    border-radius: 5px;
-    border: 1px solid #ccc;
-}
+        header.scrolled {
+            background: rgba(255, 255, 255, 0.98);
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+            padding: 0.5rem 0;
+        }
 
-form textarea {
-    resize: none;
-}
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.5rem 0;
+            transition: var(--transition);
+        }
 
-/* ==================== Responsive ==================== */
-@media(max-width: 768px) {
-    nav ul {
-        flex-direction: column;
-    }
-    .grid {
-        flex-direction: column;
-    }
-}
-</style>
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--primary);
+            display: flex;
+            align-items: center;
+        }
+
+        .logo i {
+            margin-right: 0.5rem;
+            font-size: 2rem;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+
+        .nav-links li {
+            margin-left: 2.5rem;
+        }
+
+        .nav-links a {
+            font-weight: 600;
+            position: relative;
+            padding: 0.5rem 0;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--primary);
+            transition: var(--transition);
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .nav-links a.active {
+            color: var(--primary);
+        }
+
+        .hamburger {
+            display: none;
+            cursor: pointer;
+            font-size: 1.5rem;
+        }
+
+        /* ==================== Hero Section ==================== */
+        #hero {
+            height: 100vh;
+            min-height: 800px;
+            background: linear-gradient(135deg, rgba(37, 99, 235, 0.9), rgba(16, 185, 129, 0.8)), url('https://images.unsplash.com/photo-1555066931-4365d14bab8c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80') no-repeat center center/cover;
+            display: flex;
+            align-items: center;
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-content h1 {
+            font-size: 4rem;
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+        }
+
+        .hero-content p {
+            font-size: 1.3rem;
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 2.5rem;
+            max-width: 600px;
+        }
+
+        .hero-btns {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .hero-btns .btn {
+            padding: 1rem 2.5rem;
+        }
+
+        .hero-btns .btn-outline {
+            background: transparent;
+            border: 2px solid white;
+            color: white;
+        }
+
+        .hero-btns .btn-outline:hover {
+            background: white;
+            color: var(--primary);
+        }
+
+        .scroll-down {
+            position: absolute;
+            bottom: 2rem;
+            left: 50%;
+            transform: translateX(-50%);
+            color: white;
+            font-size: 1.5rem;
+            animation: bounce 2s infinite;
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {
+                transform: translateY(0) translateX(-50%);
+            }
+            40% {
+                transform: translateY(-20px) translateX(-50%);
+            }
+            60% {
+                transform: translateY(-10px) translateX(-50%);
+            }
+        }
+
+        /* ==================== About Section ==================== */
+        #about {
+            background-color: #f9fafb;
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .about-img {
+            position: relative;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: var(--shadow-lg);
+        }
+
+        .about-img img {
+            width: 100%;
+            height: auto;
+            transition: var(--transition);
+        }
+
+        .about-img:hover img {
+            transform: scale(1.03);
+        }
+
+        .about-text h2 {
+            margin-bottom: 1.5rem;
+        }
+
+        .about-features {
+            margin-top: 2rem;
+        }
+
+        .feature-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 1.5rem;
+        }
+
+        .feature-icon {
+            background: var(--primary);
+            color: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 1.5rem;
+            flex-shrink: 0;
+        }
+
+        .feature-text h4 {
+            margin-bottom: 0.5rem;
+        }
+
+        /* ==================== Services Section ==================== */
+        #services {
+            background: white;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .service-card {
+            background: white;
+            border-radius: 10px;
+            padding: 2.5rem;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            border: 1px solid var(--light-gray);
+            text-align: center;
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-lg);
+            border-color: var(--primary);
+        }
+
+        .service-icon {
+            font-size: 3rem;
+            color: var(--primary);
+            margin-bottom: 1.5rem;
+        }
+
+        .service-card h3 {
+            margin-bottom: 1rem;
+        }
+
+        /* ==================== Projects Section ==================== */
+        #projects {
+            background: #f9fafb;
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+        }
+
+        .project-card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+
+        .project-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .project-img {
+            height: 250px;
+            overflow: hidden;
+        }
+
+        .project-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+
+        .project-card:hover .project-img img {
+            transform: scale(1.1);
+        }
+
+        .project-info {
+            padding: 2rem;
+        }
+
+        .project-info h3 {
+            margin-bottom: 1rem;
+        }
+
+        .project-tech {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .tech-tag {
+            background: var(--light-gray);
+            color: var(--dark);
+            padding: 0.3rem 0.8rem;
+            border-radius: 50px;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+
+        .project-links {
+            display: flex;
+            gap: 1rem;
+        }
+
+        /* ==================== Team Section ==================== */
+        #team {
+            background: white;
+        }
+
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .team-member {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            text-align: center;
+        }
+
+        .team-member:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .member-img {
+            height: 300px;
+            overflow: hidden;
+        }
+
+        .member-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+
+        .team-member:hover .member-img img {
+            transform: scale(1.05);
+        }
+
+        .member-info {
+            padding: 2rem 1.5rem;
+        }
+
+        .member-info h3 {
+            margin-bottom: 0.5rem;
+        }
+
+        .member-role {
+            color: var(--primary);
+            font-weight: 600;
+            margin-bottom: 1rem;
+            display: block;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+        }
+
+        .social-links a {
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+            background: var(--light-gray);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--dark);
+            transition: var(--transition);
+        }
+
+        .social-links a:hover {
+            background: var(--primary);
+            color: white;
+        }
+
+        /* ==================== Blog Section ==================== */
+        #blog {
+            background: #f9fafb;
+        }
+
+        .blog-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .blog-card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+
+        .blog-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .blog-img {
+            height: 200px;
+            overflow: hidden;
+        }
+
+        .blog-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+
+        .blog-card:hover .blog-img img {
+            transform: scale(1.1);
+        }
+
+        .blog-content {
+            padding: 1.5rem;
+        }
+
+        .blog-date {
+            color: var(--gray);
+            font-size: 0.9rem;
+            margin-bottom: 0.5rem;
+            display: block;
+        }
+
+        .blog-content h3 {
+            margin-bottom: 1rem;
+        }
+
+        .read-more {
+            color: var(--primary);
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .read-more i {
+            transition: var(--transition);
+        }
+
+        .blog-card:hover .read-more i {
+            transform: translateX(5px);
+        }
+
+        /* ==================== Contact Section ==================== */
+        #contact {
+            background: white;
+        }
+
+        .contact-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 4rem;
+        }
+
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 1.5rem;
+        }
+
+        .contact-icon {
+            background: var(--primary);
+            color: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .contact-text h3 {
+            margin-bottom: 0.5rem;
+        }
+
+        .contact-text a:hover {
+            color: var(--primary);
+        }
+
+        .contact-form {
+            background: #f9fafb;
+            padding: 2.5rem;
+            border-radius: 10px;
+            box-shadow: var(--shadow);
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 1rem;
+            border: 1px solid var(--light-gray);
+            border-radius: 5px;
+            font-family: inherit;
+            transition: var(--transition);
+        }
+
+        .form-control:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.2);
+        }
+
+        textarea.form-control {
+            min-height: 150px;
+            resize: vertical;
+        }
+
+        /* ==================== Footer ==================== */
+        footer {
+            background: var(--dark);
+            color: white;
+            padding: 5rem 0 2rem;
+        }
+
+        .footer-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
+            margin-bottom: 3rem;
+        }
+
+        .footer-col h3 {
+            color: white;
+            margin-bottom: 1.5rem;
+            font-size: 1.5rem;
+        }
+
+        .footer-col p {
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 1rem;
+        }
+
+        .footer-links a {
+            color: rgba(255, 255, 255, 0.7);
+            display: inline-block;
+            transition: var(--transition);
+        }
+
+        .footer-links a:hover {
+            color: white;
+            transform: translateX(5px);
+        }
+
+        .footer-social {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+
+        .footer-social a {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            transition: var(--transition);
+        }
+
+        .footer-social a:hover {
+            background: var(--primary);
+            transform: translateY(-5px);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .footer-bottom p {
+            color: rgba(255, 255, 255, 0.5);
+            font-size: 0.9rem;
+        }
+
+        /* ==================== Responsive Styles ==================== */
+        @media (max-width: 1200px) {
+            h1 {
+                font-size: 3rem;
+            }
+            
+            h2 {
+                font-size: 2.2rem;
+            }
+        }
+
+        @media (max-width: 992px) {
+            .about-content {
+                grid-template-columns: 1fr;
+            }
+            
+            .about-img {
+                max-width: 600px;
+                margin: 0 auto;
+            }
+            
+            .hero-content h1 {
+                font-size: 3.2rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hamburger {
+                display: block;
+            }
+            
+            .nav-links {
+                position: fixed;
+                top: 80px;
+                left: -100%;
+                width: 100%;
+                height: calc(100vh - 80px);
+                background: white;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                gap: 2rem;
+                transition: var(--transition);
+                box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+            }
+            
+            .nav-links.active {
+                left: 0;
+            }
+            
+            .nav-links li {
+                margin-left: 0;
+            }
+            
+            .hero-content h1 {
+                font-size: 2.8rem;
+            }
+            
+            .hero-content p {
+                font-size: 1.1rem;
+            }
+            
+            .section {
+                padding: 4rem 0;
+            }
+            
+            .hero-btns {
+                flex-direction: column;
+                gap: 1rem;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .container {
+                padding: 0 1.5rem;
+            }
+            
+            h1 {
+                font-size: 2.5rem;
+            }
+            
+            h2 {
+                font-size: 2rem;
+            }
+            
+            .hero-content h1 {
+                font-size: 2.2rem;
+            }
+        }
+
+        /* ==================== Animations ==================== */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .fade-in {
+            animation: fadeIn 1s ease forwards;
+        }
+
+        .delay-1 {
+            animation-delay: 0.2s;
+        }
+
+        .delay-2 {
+            animation-delay: 0.4s;
+        }
+
+        .delay-3 {
+            animation-delay: 0.6s;
+        }
+
+        .delay-4 {
+            animation-delay: 0.8s;
+        }
+    </style>
 </head>
 <body>
+    <!-- Header & Navigation -->
+    <header id="header">
+        <div class="container">
+            <nav class="navbar">
+                <a href="#" class="logo">
+                    <i class="fas fa-code"></i>
+                    <span>Shivam Tech</span>
+                </a>
+                
+                <ul class="nav-links">
+                    <li><a href="#hero" class="active">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#projects">Projects</a></li>
+                    <li><a href="#team">Team</a></li>
+                    <li><a href="#blog">Blog</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+                
+                <div class="hamburger">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </nav>
+        </div>
+    </header>
 
-<header>
-    <div class="logo">Shivam Tech Solutions</div>
-    <nav>
-        <ul>
-            <li><a href="#hero">Home </a></li>
-            <li><a href="#about">About</a></li>
-            <li><a href="#services">Services</a></li>
-            <li><a href="#projects">Projects</a></li>
-            <li><a href="#team">Team</a></li>
-            <li><a href="#blog">Blog</a></li>
-            <li><a href="#contact">Contact</a></li>
-        </ul>
-    </nav>
-</header>
-
-<section id="hero">
-    <div class="container">
-        <h1>Innovating Technology Solutions</h1>
-        <p>Building scalable web applications and modern DevOps pipelines for businesses worldwide.</p>
-        <button>Get Started</button>
-    </div>
-</section>
-
-<section id="about">
-    <div class="container">
-        <h2>About Us</h2>
-        <p>Shivam Tech Solutions is a full-stack web development and DevOps consultancy focused on delivering robust, scalable, and user-friendly applications. Our team specializes in modern technologies including MERN, MEAN, React, Next.js, Node.js, Docker, Kubernetes, Jenkins, Terraform, Ansible, Redis, and cloud platforms like AWS.</p>
-        <p>We aim to bridge the gap between software development and infrastructure operations to create reliable and maintainable systems. With our expertise, businesses can deploy, monitor, and scale applications efficiently without downtime.</p>
-        <p>We have successfully delivered projects across e-commerce, real-time applications, video conferencing platforms, and automated CI/CD pipelines. Our solutions help businesses streamline operations, reduce costs, and improve performance.</p>
-        <p>At Shivam Tech Solutions, continuous learning and innovation are at the core of our culture. We embrace modern tools and frameworks to ensure our clients receive cutting-edge solutions tailored to their needs.</p>
-    </div>
-</section>
-
-<section id="services">
-    <div class="container">
-        <h2>Our Services</h2>
-        <div class="grid">
-            <div class="card">
-                <h3>Web Development</h3>
-                <p>We build responsive, interactive, and scalable web applications using modern frameworks. Our full-stack expertise ensures seamless frontend and backend integration.</p>
-            </div>
-            <div class="card">
-                <h3>DevOps & CI/CD</h3>
-                <p>We design automated pipelines using Jenkins, GitHub Actions, Docker, Kubernetes, and Terraform to deploy applications efficiently with monitoring and alerting systems.</p>
-            </div>
-            <div class="card">
-                <h3>Cloud Solutions</h3>
-                <p>Our team leverages AWS, Azure, and GCP to host, scale, and monitor applications. We implement secure cloud architectures following best practices for performance and reliability.</p>
-            </div>
-            <div class="card">
-                <h3>Consultancy & Training</h3>
-                <p>We provide consultancy for infrastructure planning, deployment strategies, and DevOps training programs to help teams improve efficiency and skillset.</p>
+    <!-- Hero Section -->
+    <section id="hero">
+        <div class="container">
+            <div class="hero-content fade-in">
+                <h1>Innovative Tech Solutions for Modern Businesses</h1>
+                <p>We build scalable web applications and robust DevOps pipelines that drive growth and efficiency for businesses worldwide.</p>
+                <div class="hero-btns">
+                    <a href="#contact" class="btn">Get Started</a>
+                    <a href="#services" class="btn btn-outline">Our Services</a>
+                </div>
             </div>
         </div>
-    </div>
-</section>
+        
+        <a href="#about" class="scroll-down">
+            <i class="fas fa-chevron-down"></i>
+        </a>
+    </section>
 
-<section id="projects">
-    <div class="container">
-        <h2>Projects</h2>
-        <div class="grid">
-            <div class="card">
-                <h3>E-commerce Platform</h3>
-                <p>Full-stack online shopping application with product catalog, cart, payment gateway, and admin dashboard. Implemented using React, Node.js, Express, MongoDB, and Redux Toolkit for state management. CI/CD with Jenkins and Docker deployment on AWS EC2.</p>
-            </div>
-            <div class="card">
-                <h3>Real-Time Chat Application</h3>
-                <p>Chat app built with Socket.IO enabling instant messaging, group chat rooms, and real-time notifications. Backend in Node.js, Redis for session handling, and MongoDB for message storage.</p>
-            </div>
-            <div class="card">
-                <h3>Video Conferencing App</h3>
-                <p>Built using WebRTC and React for multi-user video calls, screen sharing, and integrated chat. Deployed with Docker containers orchestrated via Kubernetes for scalable real-time performance.</p>
-            </div>
-            <div class="card">
-                <h3>DevOps Automation Pipeline</h3>
-                <p>Designed end-to-end CI/CD pipelines using Jenkins, GitHub Actions, Terraform, and Ansible. Automated deployment, scaling, and monitoring of applications with logging and alerting solutions.</p>
+    <!-- About Section -->
+    <section id="about" class="section">
+        <div class="container">
+            <div class="about-content">
+                <div class="about-img fade-in">
+                    <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="Our Team">
+                </div>
+                
+                <div class="about-text">
+                    <h2 class="fade-in">About Our Company</h2>
+                    <p class="fade-in delay-1">Shivam Tech Solutions is a premier full-stack web development and DevOps consultancy dedicated to delivering robust, scalable, and user-centric applications. Our expertise spans across modern technologies including React, Next.js, Node.js, Docker, Kubernetes, and cloud platforms like AWS, Azure, and GCP.</p>
+                    <p class="fade-in delay-1">We specialize in bridging the gap between software development and infrastructure operations to create reliable, maintainable, and high-performance systems that businesses can depend on.</p>
+                    
+                    <div class="about-features">
+                        <div class="feature-item fade-in delay-2">
+                            <div class="feature-icon">
+                                <i class="fas fa-bolt"></i>
+                            </div>
+                            <div class="feature-text">
+                                <h4>High Performance</h4>
+                                <p>Optimized applications that load quickly and run smoothly even under heavy loads.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="feature-item fade-in delay-3">
+                            <div class="feature-icon">
+                                <i class="fas fa-shield-alt"></i>
+                            </div>
+                            <div class="feature-text">
+                                <h4>Secure Solutions</h4>
+                                <p>Enterprise-grade security with best practices implemented at every layer.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="feature-item fade-in delay-4">
+                            <div class="feature-icon">
+                                <i class="fas fa-expand"></i>
+                            </div>
+                            <div class="feature-text">
+                                <h4>Scalable Architecture</h4>
+                                <p>Systems designed to grow with your business needs without performance degradation.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
-    </div>
-</section>
+    </section>
 
-<section id="team">
-    <div class="container">
-        <h2>Meet Our Team</h2>
-        <div class="grid">
-            <div class="card">
-                <h3>Shivam Gupta</h3>
-                <p>Full-Stack Developer & DevOps Engineer. Expert in MERN/MEAN stacks, Docker, Kubernetes, Jenkins, Terraform, and cloud infrastructure.</p>
+    <!-- Services Section -->
+    <section id="services" class="section">
+        <div class="container">
+            <div class="section-title text-center">
+                <h2 class="fade-in">Our Services</h2>
+                <p class="fade-in delay-1">We offer comprehensive solutions to help your business thrive in the digital landscape</p>
             </div>
-            <div class="card">
-                <h3>Alice Johnson</h3>
-                <p>Frontend Specialist with expertise in React, Next.js, and responsive web design. Focused on UX/UI design and client experience.</p>
-            </div>
-            <div class="card">
-                <h3>Bob Smith</h3>
-                <p>Cloud Architect & DevOps Specialist. Experienced in AWS, GCP, CI/CD pipelines, and monitoring solutions.</p>
-            </div>
-            <div class="card">
-                <h3>Carol Lee</h3>
-                <p>Backend Developer skilled in Node.js, Express, MongoDB, Redis, and real-time application development.</p>
+            
+            <div class="services-grid">
+                <div class="service-card fade-in">
+                    <div class="service-icon">
+                        <i class="fas fa-laptop-code"></i>
+                    </div>
+                    <h3>Web Development</h3>
+                    <p>Custom web applications built with modern frameworks like React, Next.js, and Node.js. We create responsive, interactive, and scalable solutions tailored to your business needs.</p>
+                    <a href="#" class="btn btn-outline">Learn More</a>
+                </div>
+                
+                <div class="service-card fade-in delay-1">
+                    <div class="service-icon">
+                        <i class="fas fa-server"></i>
+                    </div>
+                    <h3>DevOps & CI/CD</h3>
+                    <p>Automated deployment pipelines with Docker, Kubernetes, Jenkins, and Terraform. We implement monitoring, logging, and alerting for reliable production environments.</p>
+                    <a href="#" class="btn btn-outline">Learn More</a>
+                </div>
+                
+                <div class="service-card fade-in delay-2">
+                    <div class="service-icon">
+                        <i class="fas fa-cloud"></i>
+                    </div>
+                    <h3>Cloud Solutions</h3>
+                    <p>Cloud architecture design, migration, and optimization on AWS, Azure, and Google Cloud. We help leverage cloud services for cost efficiency and performance.</p>
+                    <a href="#" class="btn btn-outline">Learn More</a>
+                </div>
+                
+                <div class="service-card fade-in delay-3">
+                    <div class="service-icon">
+                        <i class="fas fa-mobile-alt"></i>
+                    </div>
+                    <h3>Mobile Development</h3>
+                    <p>Cross-platform mobile applications with React Native and Flutter. Native iOS and Android development for performance-critical applications.</p>
+                    <a href="#" class="btn btn-outline">Learn More</a>
+                </div>
             </div>
         </div>
-    </div>
-</section>
+    </section>
 
-<section id="blog">
-    <div class="container">
-        <h2>Latest Blog</h2>
-        <div class="grid">
-            <div class="card">
-                <h3>Docker & Containerization</h3>
-                <p>Docker allows developers to package applications in containers ensuring consistent behavior across environments. Using Docker images and containers simplifies deployment, testing, and scaling of applications.</p>
+    <!-- Projects Section -->
+    <section id="projects" class="section">
+        <div class="container">
+            <div class="section-title text-center">
+                <h2 class="fade-in">Our Projects</h2>
+                <p class="fade-in delay-1">Some of our recent work that we're proud to showcase</p>
             </div>
-            <div class="card">
-                <h3>Kubernetes for Orchestration</h3>
-                <p>Kubernetes automates deployment, scaling, and management of containerized applications. It provides features like load balancing, service discovery, and self-healing, enabling highly available applications.</p>
-            </div>
-            <div class="card">
-                <h3>Terraform & IaC</h3>
-                <p>Terraform allows infrastructure as code for cloud resources. Using modules, state files, and automated pipelines, infrastructure can be deployed reliably across environments with minimal errors.</p>
-            </div>
-            <div class="card">
-                <h3>Monitoring & Logging</h3>
-                <p>Observability is key for production systems. Tools like Prometheus, Grafana, and CloudWatch provide metrics, logs, and alerts to maintain system health and reliability.</p>
+            
+            <div class="projects-grid">
+                <div class="project-card fade-in">
+                    <div class="project-img">
+                        <img src="https://images.unsplash.com/photo-1556740738-b6a63e27c4df?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="E-commerce Platform">
+                    </div>
+                    <div class="project-info">
+                        <h3>E-commerce Platform</h3>
+                        <div class="project-tech">
+                            <span class="tech-tag">React</span>
+                            <span class="tech-tag">Node.js</span>
+                            <span class="tech-tag">MongoDB</span>
+                            <span class="tech-tag">Docker</span>
+                        </div>
+                        <p>Full-featured online shopping platform with product catalog, cart, payment processing, and admin dashboard. Integrated with major payment gateways and shipping providers.</p>
+                        <div class="project-links">
+                            <a href="#" class="btn">View Project</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="project-card fade-in delay-1">
+                    <div class="project-img">
+                        <img src="https://images.unsplash.com/photo-1581291518633-83b4ebd1d83e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="Video Conferencing App">
+                    </div>
+                    <div class="project-info">
+                        <h3>Video Conferencing App</h3>
+                        <div class="project-tech">
+                            <span class="tech-tag">WebRTC</span>
+                            <span class="tech-tag">React</span>
+                            <span class="tech-tag">Node.js</span>
+                            <span class="tech-tag">Kubernetes</span>
+                        </div>
+                        <p>Real-time video conferencing solution with screen sharing, chat, and recording capabilities. Scalable architecture using WebRTC and Kubernetes for handling thousands of concurrent users.</p>
+                        <div class="project-links">
+                            <a href="#" class="btn">View Project</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="project-card fade-in delay-2">
+                    <div class="project-img">
+                        <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="DevOps Pipeline">
+                    </div>
+                    <div class="project-info">
+                        <h3>DevOps Automation Pipeline</h3>
+                        <div class="project-tech">
+                            <span class="tech-tag">Jenkins</span>
+                            <span class="tech-tag">Docker</span>
+                            <span class="tech-tag">Kubernetes</span>
+                            <span class="tech-tag">Terraform</span>
+                        </div>
+                        <p>End-to-end CI/CD pipeline implementation with automated testing, deployment, and monitoring. Reduced deployment times by 80% and improved system reliability.</p>
+                        <div class="project-links">
+                            <a href="#" class="btn">View Project</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="project-card fade-in delay-3">
+                    <div class="project-img">
+                        <img src="https://images.unsplash.com/photo-1522542550221-31fd19575a2d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="Healthcare Portal">
+                    </div>
+                    <div class="project-info">
+                        <h3>Healthcare Management Portal</h3>
+                        <div class="project-tech">
+                            <span class="tech-tag">Next.js</span>
+                            <span class="tech-tag">NestJS</span>
+                            <span class="tech-tag">PostgreSQL</span>
+                            <span class="tech-tag">AWS</span>
+                        </div>
+                        <p>HIPAA-compliant healthcare management system with patient records, appointment scheduling, and telemedicine capabilities. Built with security and compliance as top priorities.</p>
+                        <div class="project-links">
+                            <a href="#" class="btn">View Project</a>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
-    </div>
-</section>
+    </section>
 
-<section id="contact">
-    <div class="container">
-        <h2>Contact Us</h2>
-        <p>Fill in the form below to get in touch:</p>
-        <form id="contactForm">
-            <label>Name:</label>
-            <input type="text" name="name" required>
-            <label>Email:</label>
-            <input type="email" name="email" required>
-            <label>Message:</label>
-            <textarea name="message" rows="5" required></textarea>
-            <button type="submit">Send Message</button>
-        </form>
-    </div>
-</section>
+    <!-- Team Section -->
+    <section id="team" class="section">
+        <div class="container">
+            <div class="section-title text-center">
+                <h2 class="fade-in">Meet Our Team</h2>
+                <p class="fade-in delay-1">The talented professionals behind our success</p>
+            </div>
+            
+            <div class="team-grid">
+                <div class="team-member fade-in">
+                    <div class="member-img">
+                        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=774&q=80" alt="Shivam Gupta">
+                    </div>
+                    <div class="member-info">
+                        <h3>Shivam Gupta</h3>
+                        <span class="member-role">Founder & Lead Developer</span>
+                        <p>Full-stack developer with expertise in JavaScript frameworks, cloud architecture, and DevOps practices.</p>
+                        <div class="social-links">
+                            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                            <a href="#"><i class="fab fa-github"></i></a>
+                            <a href="#"><i class="fab fa-twitter"></i></a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="team-member fade-in delay-1">
+                    <div class="member-img">
+                        <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="Alice Johnson">
+                    </div>
+                    <div class="member-info">
+                        <h3>Alice Johnson</h3>
+                        <span class="member-role">Frontend Architect</span>
+                        <p>Specializes in React, Next.js, and creating beautiful, responsive user interfaces with great UX.</p>
+                        <div class="social-links">
+                            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                            <a href="#"><i class="fab fa-github"></i></a>
+                            <a href="#"><i class="fab fa-twitter"></i></a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="team-member fade-in delay-2">
+                    <div class="member-img">
+                        <img src="https://images.unsplash.com/photo-1544723795-3fb6469f5b39?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=989&q=80" alt="Bob Smith">
+                    </div>
+                    <div class="member-info">
+                        <h3>Bob Smith</h3>
+                        <span class="member-role">DevOps Engineer</span>
+                        <p>Cloud infrastructure specialist with expertise in AWS, Kubernetes, and CI/CD pipelines.</p>
+                        <div class="social-links">
+                            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                            <a href="#"><i class="fab fa-github"></i></a>
+                            <a href="#"><i class="fab fa-twitter"></i></a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="team-member fade-in delay-3">
+                    <div class="member-img">
+                        <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=688&q=80" alt="Carol Lee">
+                    </div>
+                    <div class="member-info">
+                        <h3>Carol Lee</h3>
+                        <span class="member-role">Backend Developer</span>
+                        <p>Node.js expert with deep knowledge of database design, API development, and microservices.</p>
+                        <div class="social-links">
+                            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                            <a href="#"><i class="fab fa-github"></i></a>
+                            <a href="#"><i class="fab fa-twitter"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-<footer>
-    <div class="container">
-        <p>&copy; 2025 Shivam Tech Solutions. All Rights Reserved.</p>
-        <p>Follow us on: <a href="#" style="color:#1ABC9C;">Twitter</a> | <a href="#" style="color:#1ABC9C;">LinkedIn</a> | <a href="#" style="color:#1ABC9C;">GitHub</a></p>
-    </div>
-</footer>
+    <!-- Blog Section -->
+    <section id="blog" class="section">
+        <div class="container">
+            <div class="section-title text-center">
+                <h2 class="fade-in">Latest From Our Blog</h2>
+                <p class="fade-in delay-1">Insights and tutorials on modern web development and DevOps</p>
+            </div>
+            
+            <div class="blog-grid">
+                <div class="blog-card fade-in">
+                    <div class="blog-img">
+                        <img src="https://images.unsplash.com/photo-1627398242454-45a1465c2479?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1074&q=80" alt="Docker Containers">
+                    </div>
+                    <div class="blog-content">
+                        <span class="blog-date">June 15, 2025</span>
+                        <h3>Mastering Docker for Development and Production</h3>
+                        <p>Learn how to containerize your applications effectively with Docker, including best practices for development workflows and production deployments.</p>
+                        <a href="#" class="read-more">Read More <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                
+                <div class="blog-card fade-in delay-1">
+                    <div class="blog-img">
+                        <img src="https://images.unsplash.com/photo-1629904853893-c2c8981a1dc5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="React Performance">
+                    </div>
+                    <div class="blog-content">
+                        <span class="blog-date">May 28, 2025</span>
+                        <h3>Optimizing React Applications for Peak Performance</h3>
+                        <p>Advanced techniques to identify and fix performance bottlenecks in your React applications, from code splitting to memoization.</p>
+                        <a href="#" class="read-more">Read More <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                
+                <div class="blog-card fade-in delay-2">
+                    <div class="blog-img">
+                        <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="Kubernetes">
+                    </div>
+                    <div class="blog-content">
+                        <span class="blog-date">April 10, 2025</span>
+                        <h3>Kubernetes in Production: Lessons Learned</h3>
+                        <p>Real-world experiences and hard-earned lessons from running Kubernetes in production environments at scale.</p>
+                        <a href="#" class="read-more">Read More <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                
+                <div class="blog-card fade-in delay-3">
+                    <div class="blog-img">
+                        <img src="https://images.unsplash.com/photo-1626785774573-4b799315345d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1171&q=80" alt="Serverless">
+                    </div>
+                    <div class="blog-content">
+                        <span class="blog-date">March 22, 2025</span>
+                        <h3>Building Scalable APIs with Serverless Architecture</h3>
+                        <p>How to design and implement cost-effective, scalable APIs using serverless technologies on AWS Lambda and API Gateway.</p>
+                        <a href="#" class="read-more">Read More <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center" style="margin-top: 4rem;">
+                <a href="#" class="btn">View All Articles</a>
+            </div>
+        </div>
+    </section>
 
-<script>
-/* ===== Internal JS ===== */
-document.getElementById('contactForm').addEventListener('submit', function(e){
-    e.preventDefault();
-    alert('Thank you! Your message has been sent.');
-});
-</script>
+    <!-- Contact Section -->
+    <section id="contact" class="section">
+        <div class="container">
+            <div class="section-title text-center">
+                <h2 class="fade-in">Get In Touch</h2>
+                <p class="fade-in delay-1">Have a project in mind or want to discuss how we can help your business?</p>
+            </div>
+            
+            <div class="contact-container">
+                <div class="contact-info">
+                    <div class="contact-item fade-in">
+                        <div class="contact-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <div class="contact-text">
+                            <h3>Our Location</h3>
+                            <p>123 Tech Park, Silicon Valley, CA 94025, USA</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item fade-in delay-1">
+                        <div class="contact-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div class="contact-text">
+                            <h3>Email Us</h3>
+                            <a href="mailto:info@shivamtech.com">info@shivamtech.com</a>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item fade-in delay-2">
+                        <div class="contact-icon">
+                            <i class="fas fa-phone-alt"></i>
+                        </div>
+                        <div class="contact-text">
+                            <h3>Call Us</h3>
+                            <a href="tel:+18005551234">+1 (800) 555-1234</a>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item fade-in delay-3">
+                        <div class="contact-icon">
+                            <i class="fas fa-clock"></i>
+                        </div>
+                        <div class="contact-text">
+                            <h3>Working Hours</h3>
+                            <p>Monday - Friday: 9am - 6pm</p>
+                            <p>Saturday: 10am - 2pm</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="contact-form fade-in">
+                    <form id="contactForm">
+                        <div class="form-group">
+                            <label for="name">Your Name</label>
+                            <input type="text" id="name" class="form-control" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="email">Your Email</label>
+                            <input type="email" id="email" class="form-control" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="subject">Subject</label>
+                            <input type="text" id="subject" class="form-control" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="message">Your Message</label>
+                            <textarea id="message" class="form-control" required></textarea>
+                        </div>
+                        
+                        <button type="submit" class="btn btn-secondary" style="width: 100%;">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
 
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-container">
+                <div class="footer-col">
+                    <h3>Shivam Tech Solutions</h3>
+                    <p>Innovative technology solutions for modern businesses. We specialize in full-stack web development and DevOps to help your business grow.</p>
+                    <div class="footer-social">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fab fa-github"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-col">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="#hero">Home</a></li>
+                        <li><a href="#about">About Us</a></li>
+                        <li><a href="#services">Services</a></li>
+                        <li><a href="#projects">Projects</a></li>
+                        <li><a href="#team">Our Team</a></li>
+                        <li><a href="#blog">Blog</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-col">
+                    <h3>Services</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">Web Development</a></li>
+                        <li><a href="#">Mobile Development</a></li>
+                        <li><a href="#">DevOps & CI/CD</a></li>
+                        <li><a href="#">Cloud Solutions</a></li>
+                        <li><a href="#">UI/UX Design</a></li>
+                        <li><a href="#">Consulting</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-col">
+                    <h3>Newsletter</h3>
+                    <p>Subscribe to our newsletter for the latest updates and tech insights.</p>
+                    <form class="newsletter-form">
+                        <div class="form-group">
+                            <input type="email" class="form-control" placeholder="Your Email" required>
+                        </div>
+                        <button type="submit" class="btn btn-secondary" style="width: 100%;">Subscribe</button>
+                    </form>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2025 Shivam Tech Solutions. All Rights Reserved. | <a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile Navigation Toggle
+        const hamburger = document.querySelector('.hamburger');
+        const navLinks = document.querySelector('.nav-links');
+        
+        hamburger.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+            hamburger.innerHTML = navLinks.classList.contains('active') ? 
+                '<i class="fas fa-times"></i>' : '<i class="fas fa-bars"></i>';
+        });
+        
+        // Close mobile menu when clicking a link
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+                hamburger.innerHTML = '<i class="fas fa-bars"></i>';
+            });
+        });
+        
+        // Sticky Header
+        const header = document.getElementById('header');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 100) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+        
+        // Smooth Scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+        
+        // Active link highlighting
+        const sections = document.querySelectorAll('section');
+        const navItems = document.querySelectorAll('.nav-links a');
+        
+        window.addEventListener('scroll', () => {
+            let current = '';
+            
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                
+                if (pageYOffset >= (sectionTop - 200)) {
+                    current = section.getAttribute('id');
+                }
+            });
+            
+            navItems.forEach(item => {
+                item.classList.remove('active');
+                if (item.getAttribute('href') === `#${current}`) {
+                    item.classList.add('active');
+                }
+            });
+        });
+        
+        // Form submission
+        const contactForm = document.getElementById('contactForm');
+        if (contactForm) {
+            contactForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                alert('Thank you for your message! We will get back to you soon.');
+                this.reset();
+            });
+        }
+        
+        // Newsletter form
+        const newsletterForm = document.querySelector('.newsletter-form');
+        if (newsletterForm) {
+            newsletterForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                alert('Thank you for subscribing to our newsletter!');
+                this.reset();
+            });
+        }
+        
+        // Animation on scroll
+        const fadeElements = document.querySelectorAll('.fade-in');
+        
+        const fadeInOnScroll = () => {
+            fadeElements.forEach(element => {
+                const elementTop = element.getBoundingClientRect().top;
+                const windowHeight = window.innerHeight;
+                
+                if (elementTop < windowHeight - 100) {
+                    element.style.opacity = '1';
+                    element.style.transform = 'translateY(0)';
+                }
+            });
+        };
+        
+        // Initialize elements as invisible
+        fadeElements.forEach(element => {
+            element.style.opacity = '0';
+            element.style.transform = 'translateY(20px)';
+            element.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+        });
+        
+        window.addEventListener('scroll', fadeInOnScroll);
+        window.addEventListener('load', fadeInOnScroll);
+    </script>
 </body>
 </html>
